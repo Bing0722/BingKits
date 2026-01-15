@@ -1,0 +1,29 @@
+cmake_minimum_required(VERSION 4.1.2)
+
+project(BingKits VERSION 1.0 LANGUAGES CXX)
+
+set(CMAKE_DEBUG_POSTFIX d)
+
+foreach(OUTPUTCONFIG Debug Release RelWithDebInfo MinSizeRel)
+    string(TOUPPER ${OUTPUTCONFIG} OUTPUTCONFIG_UPPER)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_${OUTPUTCONFIG_UPPER} ${CMAKE_BINARY_DIR}/bin/${OUTPUTCONFIG})
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_${OUTPUTCONFIG_UPPER} ${CMAKE_BINARY_DIR}/lib/${OUTPUTCONFIG})
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${OUTPUTCONFIG_UPPER} ${CMAKE_BINARY_DIR}/lib/${OUTPUTCONFIG})
+endforeach()
+
+if(WIN32)
+    add_compile_options(/utf8)    
+endif(WIN32)
+
+
+# 只允许使用 C++11 标准
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+add_executable(${PROJECT_NAME}
+    main.cc
+)
+
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} include)
+target_link_libraries(${PROJECT_NAME} PRIVATE )
