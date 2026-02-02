@@ -11,9 +11,10 @@ foreach(OUTPUTCONFIG Debug Release RelWithDebInfo MinSizeRel)
     set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${OUTPUTCONFIG_UPPER} ${CMAKE_BINARY_DIR}/lib/${OUTPUTCONFIG})
 endforeach()
 
-if(WIN32)
-    add_compile_options(/utf8)    
-endif(WIN32)
+if(MSVC)
+    add_compile_options(/utf-8)    
+    add_definitions(-DUNICODE -D_UNICODE)  # 定义 UNICODE 宏
+endif()
 
 
 # 只允许使用 C++11 标准
