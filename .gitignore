@@ -45,3 +45,6 @@ build/
 
 # Cache files
 *.cache
+
+# 3rd party libraries
+third_party/

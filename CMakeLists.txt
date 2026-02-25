@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 4.1.2)
 
-project(BingKits VERSION 1.0 LANGUAGES CXX)
+project(BingKits VERSION 1.0 LANGUAGES C CXX)
+
+add_subdirectory(third_party)
 
 set(CMAKE_DEBUG_POSTFIX d)
 
@@ -28,3 +30,8 @@ add_executable(${PROJECT_NAME}
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} include)
 target_link_libraries(${PROJECT_NAME} PRIVATE )
+
+if(ENABLE_SQLITE)
+    target_link_libraries(${PROJECT_NAME} PRIVATE sqlite)
+endif()
+

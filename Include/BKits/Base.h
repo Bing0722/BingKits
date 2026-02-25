@@ -14,11 +14,13 @@
 #else
 #  define BKITS_CLANG_VERSION 0
 #endif
+
 #if defined(__GNUC__) && !defined(__clang__) && !defined(__INTEL_COMPILER)
 #  define BKITS_GCC_VERSION (__GNUC__ * 100 + __GNUC_MINOR__)
 #else
 #  define BKITS_GCC_VERSION 0
 #endif
+
 #if defined(__ICL)
 #  define BKITS_ICC_VERSION __ICL
 #elif defined(__INTEL_COMPILER)
@@ -26,6 +28,7 @@
 #else
 #  define BKITS_ICC_VERSION 0
 #endif
+
 #ifdef _MSVC_LANG
 #  define BKITS_CPLUSPLUS _MSVC_LANG
 #else
@@ -38,11 +41,13 @@
 #else
 #  define BKITS_GLIBCXX_RELEASE 0
 #endif
+
 #ifdef _LIBCPP_VERSION
 #  define BKITS_LIBCPP_VERSION _LIBCPP_VERSION
 #else
 #  define BKITS_LIBCPP_VERSION 0
 #endif
+
 #if defined(_MSC_VER)
 #  define BKITS_MSC_VERSION _MSC_VER
 #else
@@ -55,16 +60,19 @@
 #else
 #  define BKITS_HAS_FEATURE(x) 0
 #endif
+
 #ifdef __has_include
 #  define BKITS_HAS_INCLUDE(x) __has_include(x)
 #else
 #  define BKITS_HAS_INCLUDE(x) 0
 #endif
+
 #ifdef __has_builtin
 #  define BKITS_HAS_BUILTIN(x) __has_builtin(x)
 #else
 #  define BKITS_HAS_BUILTIN(x) 0
 #endif
+
 #ifdef __has_cpp_attribute
 #  define BKITS_HAS_CPP_ATTRIBUTE(x) __has_cpp_attribute(x)
 #else
