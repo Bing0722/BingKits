@@ -48,3 +48,5 @@ build/
 
 # 3rd party libraries
 third_party/
+
+__cmake_systeminformation

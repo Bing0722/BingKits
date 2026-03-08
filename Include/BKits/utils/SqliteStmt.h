@@ -126,6 +126,7 @@ private:
             throw SQLiteException(sqlite3_errmsg(db_), rc);
         }
     }
+
     sqlite3_stmt* stmt_;
     sqlite3*      db_;
 };
